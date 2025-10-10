@@ -79,9 +79,34 @@ npm install
 
 ### Running the Application
 
+#### Quick Start (Using Scripts)
+
+1. **Start all services:**
+```bash
+./start-all.sh
+```
+
+This will automatically:
+- Install dependencies if needed
+- Start backend on port 3000
+- Start frontend on port 3001
+- Show service URLs and PIDs
+
+2. **Stop all services:**
+```bash
+./stop-all.sh
+```
+
+3. **Access the app:** http://localhost:3001
+
+#### Manual Start (Two Terminals)
+
+If you prefer to run services manually:
+
 1. Start the backend API server (Terminal 1):
 ```bash
 cd backend
+npm install
 npm run dev
 ```
 The API will be available at http://localhost:3000
@@ -89,6 +114,7 @@ The API will be available at http://localhost:3000
 2. Start the frontend application (Terminal 2):
 ```bash
 cd frontend
+npm install
 npm run dev
 ```
 The app will be available at http://localhost:3001
