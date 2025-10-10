@@ -1,1 +1,241 @@
-# test_mcp
+# Luxury Brands Application
+
+A modern, scalable web application for discovering luxury brands around the world. Built with Next.js, React, TypeScript, and Tailwind CSS, following SOLID principles and KISS methodology.
+
+## Features
+
+- 🏢 **Brand Discovery**: Browse a curated collection of luxury brands
+- 📍 **Interactive Maps**: View brand headquarters on interactive maps powered by Leaflet
+- 📱 **Responsive Design**: Beautiful UI that works on all devices
+- 🎨 **Modern Design**: Clean, professional interface with Tailwind CSS
+- ⚡ **Fast Performance**: Built with Next.js for optimal performance
+- 🔒 **Type Safety**: Full TypeScript support throughout
+
+## Project Structure
+
+The project is organized into three main folders following separation of concerns:
+
+```
+test_mcp/
+├── frontend/          # Next.js React application (port 3001)
+├── backend/           # Next.js API server (port 3000)
+├── database/          # Fake JSON database for testing
+└── README.md          # This file
+```
+
+### Frontend
+The client-side application built with Next.js, React, and Tailwind CSS. Provides a beautiful, responsive UI for browsing luxury brands.
+
+- **Technology**: Next.js 15, React 19, TypeScript, Tailwind CSS
+- **Port**: 3001
+- **Features**: Brand listing, brand details, interactive maps
+
+[Read more →](./frontend/README.md)
+
+### Backend
+The API server built with Next.js API routes. Provides RESTful endpoints for accessing brand data.
+
+- **Technology**: Next.js 15, TypeScript
+- **Port**: 3000
+- **Endpoints**: `/api/brands`, `/api/brands/:id`
+
+[Read more →](./backend/README.md)
+
+### Database
+A simple JSON-based fake database for testing and development purposes. Contains luxury brand data with locations.
+
+- **Format**: JSON
+- **Brands**: 8 luxury brands (Louis Vuitton, Gucci, Rolex, etc.)
+- **Data**: Brand info, descriptions, locations with coordinates
+
+[Read more →](./database/README.md)
+
+## Quick Start
+
+### Prerequisites
+
+- Node.js 18 or higher
+- npm or yarn package manager
+
+### Installation
+
+1. Clone the repository
+```bash
+git clone https://github.com/RLNunes/test_mcp.git
+cd test_mcp
+```
+
+2. Install backend dependencies
+```bash
+cd backend
+npm install
+```
+
+3. Install frontend dependencies
+```bash
+cd ../frontend
+npm install
+```
+
+### Running the Application
+
+1. Start the backend API server (Terminal 1):
+```bash
+cd backend
+npm run dev
+```
+The API will be available at http://localhost:3000
+
+2. Start the frontend application (Terminal 2):
+```bash
+cd frontend
+npm run dev
+```
+The app will be available at http://localhost:3001
+
+3. Open your browser and navigate to http://localhost:3001
+
+## Architecture
+
+### Design Principles
+
+This project follows industry best practices:
+
+- **SOLID Principles**
+  - Single Responsibility: Each class/component has one purpose
+  - Open/Closed: Open for extension, closed for modification
+  - Liskov Substitution: Components can be substituted with their subtypes
+  - Interface Segregation: Clean, focused interfaces
+  - Dependency Inversion: Depend on abstractions, not implementations
+
+- **KISS (Keep It Simple, Stupid)**
+  - Clear, readable code
+  - Minimal complexity
+  - Easy to understand and maintain
+
+- **Separation of Concerns**
+  - Frontend, Backend, and Database are completely separated
+  - Each layer has a specific responsibility
+  - Easy to scale and modify independently
+
+### Technology Stack
+
+**Frontend:**
+- Next.js 15 (App Router)
+- React 19
+- TypeScript
+- Tailwind CSS
+- Leaflet (Maps)
+- React Icons
+
+**Backend:**
+- Next.js 15 (API Routes)
+- TypeScript
+- File-based JSON database
+
+**Development:**
+- ESLint
+- TypeScript strict mode
+- npm package manager
+
+## API Documentation
+
+### GET /api/brands
+Retrieves all luxury brands.
+
+**Response:**
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "id": "1",
+      "name": "Louis Vuitton",
+      "description": "...",
+      "category": "Fashion & Leather Goods",
+      "founded": 1854,
+      "headquarters": "Paris, France",
+      "location": {
+        "lat": 48.8566,
+        "lng": 2.3522,
+        "address": "..."
+      },
+      "image": "https://..."
+    }
+  ]
+}
+```
+
+### GET /api/brands/:id
+Retrieves a specific brand by ID.
+
+**Response:**
+```json
+{
+  "success": true,
+  "data": {
+    "id": "1",
+    "name": "Louis Vuitton",
+    "...": "..."
+  }
+}
+```
+
+## Development
+
+### Code Quality
+
+- TypeScript for type safety
+- ESLint for code linting
+- Component-based architecture
+- Service layer pattern
+- Clean, documented code
+
+### Building for Production
+
+Build the backend:
+```bash
+cd backend
+npm run build
+npm start
+```
+
+Build the frontend:
+```bash
+cd frontend
+npm run build
+npm start
+```
+
+## Contributing
+
+When contributing to this project:
+
+1. Follow the existing code style
+2. Maintain SOLID principles
+3. Keep it simple (KISS)
+4. Write clear, self-documenting code
+5. Update documentation as needed
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Future Enhancements
+
+- [ ] Add search and filtering
+- [ ] Implement user authentication
+- [ ] Add admin panel for managing brands
+- [ ] Connect to a real database (PostgreSQL/MongoDB)
+- [ ] Add unit and integration tests
+- [ ] Implement CI/CD pipeline
+- [ ] Add Docker support
+- [ ] Deploy to production
+
+## Support
+
+For issues, questions, or contributions, please open an issue on GitHub.
+
+---
+
+Built with ❤️ using Next.js, React, and TypeScript
