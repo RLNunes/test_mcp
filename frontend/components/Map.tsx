@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import { Location } from '@/types/brand';
+import type * as L from 'leaflet';
 
 interface MapProps {
   location: Location;
@@ -10,7 +11,7 @@ interface MapProps {
 
 export const Map: React.FC<MapProps> = ({ location, brandName }) => {
   const mapRef = useRef<HTMLDivElement>(null);
-  const mapInstanceRef = useRef<any>(null);
+  const mapInstanceRef = useRef<L.Map | null>(null);
 
   useEffect(() => {
     // Only run on client side
@@ -20,6 +21,7 @@ export const Map: React.FC<MapProps> = ({ location, brandName }) => {
       const L = await import('leaflet');
       
       // Fix for default marker icon issue with webpack
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       delete (L.Icon.Default.prototype as any)._getIconUrl;
       L.Icon.Default.mergeOptions({
         iconRetinaUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',

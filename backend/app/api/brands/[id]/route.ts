@@ -59,7 +59,7 @@ export async function GET(
     }
 
     return NextResponse.json({ success: true, data: brand });
-  } catch (error) {
+  } catch {
     return NextResponse.json(
       { success: false, error: 'Failed to fetch brand' },
       { status: 500 }

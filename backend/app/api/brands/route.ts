@@ -51,7 +51,7 @@ export async function GET() {
   try {
     const brands = brandService.getAllBrands();
     return NextResponse.json({ success: true, data: brands });
-  } catch (error) {
+  } catch {
     return NextResponse.json(
       { success: false, error: 'Failed to fetch brands' },
       { status: 500 }

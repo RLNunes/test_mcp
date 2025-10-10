@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Link from 'next/link';
 import { Brand } from '@/types/brand';
 import { BrandCard } from '@/components/BrandCard';
 import { Loading } from '@/components/Loading';
@@ -49,7 +48,7 @@ export default function Home() {
       <header className="bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <h1 className="text-4xl font-bold text-gray-900">Luxury Brands</h1>
-          <p className="mt-2 text-gray-600">Discover the world's most prestigious brands</p>
+          <p className="mt-2 text-gray-600">Discover the world&apos;s most prestigious brands</p>
         </div>
       </header>
 
