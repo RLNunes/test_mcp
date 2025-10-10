@@ -1,0 +1,114 @@
+[
+  {
+    "id": "1",
+    "name": "Louis Vuitton",
+    "description": "French luxury fashion house known for its iconic monogram canvas and leather goods. Founded in 1854, it's one of the world's leading international fashion houses.",
+    "category": "Fashion & Leather Goods",
+    "founded": 1854,
+    "headquarters": "Paris, France",
+    "location": {
+      "lat": 48.8566,
+      "lng": 2.3522,
+      "address": "22 Avenue Montaigne, 75008 Paris, France"
+    },
+    "image": "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=400"
+  },
+  {
+    "id": "2",
+    "name": "Gucci",
+    "description": "Italian luxury fashion house known for its distinctive designs and iconic double G logo. Founded in Florence in 1921, Gucci has become synonymous with Italian craftsmanship.",
+    "category": "Fashion & Accessories",
+    "founded": 1921,
+    "headquarters": "Florence, Italy",
+    "location": {
+      "lat": 43.7696,
+      "lng": 11.2558,
+      "address": "Via Tornabuoni, 73/R, 50123 Firenze FI, Italy"
+    },
+    "image": "https://images.unsplash.com/photo-1583623025817-d180a2221d0a?w=400"
+  },
+  {
+    "id": "3",
+    "name": "Rolex",
+    "description": "Swiss luxury watchmaker renowned for precision and status. Founded in 1905, Rolex has been at the forefront of watchmaking innovation and craftsmanship.",
+    "category": "Watches & Jewelry",
+    "founded": 1905,
+    "headquarters": "Geneva, Switzerland",
+    "location": {
+      "lat": 46.2044,
+      "lng": 6.1432,
+      "address": "Rue François-Dussaud 3-5-7, 1211 Geneva, Switzerland"
+    },
+    "image": "https://images.unsplash.com/photo-1587836374616-84dcd57c6e4e?w=400"
+  },
+  {
+    "id": "4",
+    "name": "Hermès",
+    "description": "French luxury goods manufacturer specializing in leather, lifestyle accessories, perfumery, and ready-to-wear. Founded in 1837, Hermès is known for its Birkin and Kelly bags.",
+    "category": "Fashion & Leather Goods",
+    "founded": 1837,
+    "headquarters": "Paris, France",
+    "location": {
+      "lat": 48.8704,
+      "lng": 2.3126,
+      "address": "24 Rue du Faubourg Saint-Honoré, 75008 Paris, France"
+    },
+    "image": "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=400"
+  },
+  {
+    "id": "5",
+    "name": "Chanel",
+    "description": "French luxury fashion house focusing on haute couture, ready-to-wear, handbags, perfumery, and cosmetics. Founded by Coco Chanel in 1910, known for the iconic Chanel No. 5.",
+    "category": "Fashion & Beauty",
+    "founded": 1910,
+    "headquarters": "Paris, France",
+    "location": {
+      "lat": 48.8698,
+      "lng": 2.3243,
+      "address": "31 Rue Cambon, 75001 Paris, France"
+    },
+    "image": "https://images.unsplash.com/photo-1596462502278-27130d1df42d?w=400"
+  },
+  {
+    "id": "6",
+    "name": "Prada",
+    "description": "Italian luxury fashion house specializing in leather handbags, travel accessories, shoes, ready-to-wear, perfumes and other fashion accessories. Founded in 1913 in Milan.",
+    "category": "Fashion & Accessories",
+    "founded": 1913,
+    "headquarters": "Milan, Italy",
+    "location": {
+      "lat": 45.4642,
+      "lng": 9.1900,
+      "address": "Via Antonio Fogazzaro, 28, 20135 Milano MI, Italy"
+    },
+    "image": "https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=400"
+  },
+  {
+    "id": "7",
+    "name": "Cartier",
+    "description": "French luxury goods conglomerate known for designing, manufacturing, and selling jewelry and watches. Founded in 1847, Cartier is often referred to as 'the jeweler of kings'.",
+    "category": "Jewelry & Watches",
+    "founded": 1847,
+    "headquarters": "Paris, France",
+    "location": {
+      "lat": 48.8738,
+      "lng": 2.3301,
+      "address": "13 Rue de la Paix, 75002 Paris, France"
+    },
+    "image": "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=400"
+  },
+  {
+    "id": "8",
+    "name": "Burberry",
+    "description": "British luxury fashion house known for its distinctive tartan pattern and trench coats. Founded in 1856, Burberry represents classic British style and craftsmanship.",
+    "category": "Fashion & Outerwear",
+    "founded": 1856,
+    "headquarters": "London, United Kingdom",
+    "location": {
+      "lat": 51.5074,
+      "lng": -0.1278,
+      "address": "Horseferry House, London SW1P 2AW, United Kingdom"
+    },
+    "image": "https://images.unsplash.com/photo-1610652492500-ded49ceeb378?w=400"
+  }
+]
