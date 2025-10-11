@@ -1,0 +1,63 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Brand model - luxury brands information
+model Brand {
+  id           String   @id @default(cuid())
+  name         String   @unique
+  description  String
+  category     String
+  founded      Int
+  headquarters String
+  lat          Float
+  lng          Float
+  address      String
+  image        String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  
+  // Relations
+  agents       AgentBrand[]
+  
+  @@map("brands")
+}
+
+// Agent model - agents that help customers with brands
+model Agent {
+  id        String   @id @default(cuid())
+  name      String
+  email     String   @unique
+  phone     String?
+  expertise String?  // Area of expertise
+  active    Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  // Relations
+  brands    AgentBrand[]
+  
+  @@map("agents")
+}
+
+// Many-to-many relationship between Agents and Brands
+model AgentBrand {
+  id        String   @id @default(cuid())
+  agentId   String
+  brandId   String
+  createdAt DateTime @default(now())
+  
+  agent     Agent    @relation(fields: [agentId], references: [id], onDelete: Cascade)
+  brand     Brand    @relation(fields: [brandId], references: [id], onDelete: Cascade)
+  
+  @@unique([agentId, brandId])
+  @@map("agent_brands")
+}
