@@ -33,22 +33,24 @@ The client-side application built with Next.js, React, and Tailwind CSS. Provide
 [Read more →](./frontend/README.md)
 
 ### Backend
-The API server built with Next.js API routes. Provides RESTful endpoints for accessing brand data.
+The API server built with Next.js API routes and PostgreSQL database. Provides RESTful endpoints for accessing brand and agent data.
 
-- **Technology**: Next.js 15, TypeScript
+- **Technology**: Next.js 15, TypeScript, PostgreSQL, Prisma ORM
 - **Port**: 3000
-- **Endpoints**: `/api/brands`, `/api/brands/:id`
+- **Endpoints**: `/api/brands`, `/api/brands/:id`, `/api/agents`
+- **Database**: PostgreSQL with Prisma ORM
 
 [Read more →](./backend/README.md)
 
 ### Database
-A simple JSON-based fake database for testing and development purposes. Contains luxury brand data with locations.
+PostgreSQL database with Prisma ORM for managing brands, agents, and their relationships.
 
-- **Format**: JSON
-- **Brands**: 8 luxury brands (Louis Vuitton, Gucci, Rolex, etc.)
-- **Data**: Brand info, descriptions, locations with coordinates
+- **Technology**: PostgreSQL, Prisma ORM
+- **Models**: Brand, Agent, AgentBrand (many-to-many relationship)
+- **Data**: 8 luxury brands, sample agents with brand associations
+- **Features**: Type-safe queries, migrations, seeding
 
-[Read more →](./database/README.md)
+[Read more →](./backend/DATABASE.md)
 
 ## Quick Start
 
@@ -56,6 +58,7 @@ A simple JSON-based fake database for testing and development purposes. Contains
 
 - Node.js 18 or higher
 - npm or yarn package manager
+- PostgreSQL 12 or higher
 
 ### Installation
 
@@ -65,13 +68,23 @@ git clone https://github.com/RLNunes/test_mcp.git
 cd test_mcp
 ```
 
-2. Install backend dependencies
+2. Set up PostgreSQL database
+```bash
+# Create database (using psql or your preferred tool)
+createdb luxury_brands
+```
+
+3. Install backend dependencies and set up database
 ```bash
 cd backend
 npm install
+cp .env.example .env
+# Edit .env with your PostgreSQL credentials
+npm run db:migrate    # Run migrations
+npm run db:seed       # Seed with initial data
 ```
 
-3. Install frontend dependencies
+4. Install frontend dependencies
 ```bash
 cd ../frontend
 npm install
@@ -157,12 +170,14 @@ This project follows industry best practices:
 **Backend:**
 - Next.js 15 (API Routes)
 - TypeScript
-- File-based JSON database
+- PostgreSQL (Database)
+- Prisma ORM (Database toolkit)
 
 **Development:**
 - ESLint
 - TypeScript strict mode
 - npm package manager
+- Prisma Studio (Database GUI)
 
 ## API Documentation
 
@@ -207,6 +222,33 @@ Retrieves a specific brand by ID.
 }
 ```
 
+### GET /api/agents
+Retrieves all agents with their associated brands.
+
+**Response:**
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "id": "...",
+      "name": "Sarah Johnson",
+      "email": "sarah.johnson@luxury.com",
+      "phone": "+1-555-0101",
+      "expertise": "Fashion & Leather Goods",
+      "active": true,
+      "brands": [
+        {
+          "id": "1",
+          "name": "Louis Vuitton",
+          "category": "Fashion & Leather Goods"
+        }
+      ]
+    }
+  ]
+}
+```
+
 ## Development
 
 ### Code Quality
@@ -216,6 +258,18 @@ Retrieves a specific brand by ID.
 - Component-based architecture
 - Service layer pattern
 - Clean, documented code
+
+### Database Management
+
+Manage the database using these commands:
+
+```bash
+cd backend
+npm run db:generate    # Generate Prisma Client
+npm run db:migrate     # Run database migrations
+npm run db:seed        # Seed database with initial data
+npm run db:studio      # Open Prisma Studio (database GUI)
+```
 
 ### Building for Production
 
@@ -251,8 +305,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - [ ] Add search and filtering
 - [ ] Implement user authentication
-- [ ] Add admin panel for managing brands
-- [ ] Connect to a real database (PostgreSQL/MongoDB)
+- [ ] Add admin panel for managing brands and agents
+- [x] ~~Connect to a real database (PostgreSQL)~~
+- [x] ~~Support for agents and brand relationships~~
+- [ ] Add customer management features
 - [ ] Add unit and integration tests
 - [ ] Implement CI/CD pipeline
 - [ ] Add Docker support

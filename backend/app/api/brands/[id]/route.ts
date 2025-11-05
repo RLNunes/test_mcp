@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server';
-import { readFileSync } from 'fs';
-import { join } from 'path';
+import { prisma } from '@/lib/prisma';
 
 interface Brand {
   id: string;
@@ -19,25 +18,28 @@ interface Brand {
 
 // Service layer - Single Responsibility Principle
 class BrandService {
-  private brands: Brand[] = [];
-
-  constructor() {
-    this.loadBrands();
-  }
-
-  private loadBrands(): void {
-    try {
-      const dbPath = join(process.cwd(), '..', 'database', 'brands.json');
-      const data = readFileSync(dbPath, 'utf-8');
-      this.brands = JSON.parse(data);
-    } catch (error) {
-      console.error('Error loading brands:', error);
-      this.brands = [];
-    }
-  }
-
-  getBrandById(id: string): Brand | undefined {
-    return this.brands.find(brand => brand.id === id);
+  async getBrandById(id: string): Promise<Brand | null> {
+    const brand = await prisma.brand.findUnique({
+      where: { id },
+    });
+    
+    if (!brand) return null;
+    
+    // Transform database model to API response format
+    return {
+      id: brand.id,
+      name: brand.name,
+      description: brand.description,
+      category: brand.category,
+      founded: brand.founded,
+      headquarters: brand.headquarters,
+      location: {
+        lat: brand.lat,
+        lng: brand.lng,
+        address: brand.address,
+      },
+      image: brand.image,
+    };
   }
 }
 
@@ -49,7 +51,7 @@ export async function GET(
 ) {
   try {
     const { id } = await params;
-    const brand = brandService.getBrandById(id);
+    const brand = await brandService.getBrandById(id);
     
     if (!brand) {
       return NextResponse.json(
@@ -59,7 +61,8 @@ export async function GET(
     }
 
     return NextResponse.json({ success: true, data: brand });
-  } catch {
+  } catch (error) {
+    console.error('Error fetching brand:', error);
     return NextResponse.json(
       { success: false, error: 'Failed to fetch brand' },
       { status: 500 }
