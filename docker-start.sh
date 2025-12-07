@@ -40,7 +40,12 @@ docker-compose up -d --build
 
 echo ""
 echo "⏳ Waiting for services to be ready..."
-sleep 10
+sleep 30
+
+# Seed the database on first run
+echo ""
+echo "🌱 Seeding database with initial data..."
+docker-compose exec -T backend npm run db:seed 2>/dev/null || echo "⚠️  Seeding skipped (database may already be seeded)"
 
 # Check if containers are running
 if docker-compose ps | grep -q "Up"; then

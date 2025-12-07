@@ -35,7 +35,7 @@ services:
     depends_on:
       db:
         condition: service_healthy
-    command: sh -c "npx prisma migrate deploy && npx prisma db seed && node server.js"
+    command: sh -c "npx prisma migrate deploy && node server.js"
 
   # Frontend Application
   frontend:

@@ -175,10 +175,13 @@ Deploy using Docker and Docker Compose on any cloud provider or your own server.
    docker-compose up -d
    ```
 
-4. **Wait for services to start**
+4. **Seed the database** (first time only)
    ```bash
-   # Check logs
-   docker-compose logs -f
+   # Wait for services to start (about 30 seconds)
+   sleep 30
+   
+   # Seed database with initial data
+   docker-compose exec backend npm run db:seed
    ```
 
 5. **Access your application**
