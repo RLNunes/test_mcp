@@ -44,6 +44,10 @@ sleep 30
 
 # Seed the database on first run
 echo ""
+echo "🔄 Running database migrations..."
+docker-compose exec -T backend npx prisma migrate deploy 2>/dev/null || echo "⚠️  Migrations may have already been applied"
+
+echo ""
 echo "🌱 Seeding database with initial data..."
 docker-compose exec -T backend npm run db:seed 2>/dev/null || echo "⚠️  Seeding skipped (database may already be seeded)"
 
