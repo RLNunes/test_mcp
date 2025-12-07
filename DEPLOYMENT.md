@@ -168,6 +168,10 @@ Deploy using Docker and Docker Compose on any cloud provider or your own server.
    ```bash
    # Create .env file in the root directory
    echo "DB_PASSWORD=your_secure_password" > .env
+   
+   # Optional: Set API URL for external access
+   # echo "NEXT_PUBLIC_API_URL=http://your-server-ip:3000" >> .env
+   # If not set, defaults to http://localhost:3000
    ```
 
 3. **Build and start containers**

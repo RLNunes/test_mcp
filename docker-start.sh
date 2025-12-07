@@ -42,14 +42,22 @@ echo ""
 echo "⏳ Waiting for services to be ready..."
 sleep 30
 
-# Seed the database on first run
+# Run database migrations
 echo ""
 echo "🔄 Running database migrations..."
-docker-compose exec -T backend npx prisma migrate deploy 2>/dev/null || echo "⚠️  Migrations may have already been applied"
+if docker-compose exec -T backend npx prisma migrate deploy 2>&1; then
+    echo "✅ Migrations completed successfully"
+else
+    echo "⚠️  Migrations may have already been applied or there was an issue"
+fi
 
 echo ""
 echo "🌱 Seeding database with initial data..."
-docker-compose exec -T backend npm run db:seed 2>/dev/null || echo "⚠️  Seeding skipped (database may already be seeded)"
+if docker-compose exec -T backend npm run db:seed 2>&1; then
+    echo "✅ Database seeded successfully"
+else
+    echo "⚠️  Seeding skipped (database may already be seeded)"
+fi
 
 # Check if containers are running
 if docker-compose ps | grep -q "Up"; then
