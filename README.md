@@ -11,6 +11,26 @@ A modern, scalable web application for discovering luxury brands around the worl
 - ⚡ **Fast Performance**: Built with Next.js for optimal performance
 - 🔒 **Type Safety**: Full TypeScript support throughout
 
+## 🚀 Deploy Your Own
+
+Want to make this app accessible via URL? We've got you covered!
+
+<div align="center">
+
+### Quick Deploy Options
+
+| Platform | Difficulty | Time | Cost | Guide |
+|----------|-----------|------|------|-------|
+| **Vercel** ⭐ | Easy | 5 min | Free | [Quick Guide](./QUICK_DEPLOY.md#option-1-vercel-easiest---recommended) |
+| **Docker** 🐳 | Medium | 10 min | $6/mo | [Quick Guide](./QUICK_DEPLOY.md#option-2-docker-deploy-anywhere) |
+| **Railway** 🚂 | Easy | 8 min | $5/mo | [Full Guide](./DEPLOYMENT.md#railway) |
+
+📖 **Full Documentation**: [DEPLOYMENT.md](./DEPLOYMENT.md) | [QUICK_DEPLOY.md](./QUICK_DEPLOY.md) | [CI_CD.md](./CI_CD.md)
+
+</div>
+
+---
+
 ## Project Structure
 
 The project is organized into three main folders following separation of concerns:
@@ -287,6 +307,25 @@ npm run build
 npm start
 ```
 
+## Deployment
+
+Ready to make your app accessible to anyone via URL?
+
+Check out our comprehensive **[Deployment Guide](./DEPLOYMENT.md)** for step-by-step instructions on deploying to:
+
+- **Vercel** (Recommended - easiest for Next.js apps)
+- **Docker** (Deploy anywhere with containers)
+- **Railway, Heroku, Render, and more**
+
+The guide includes:
+- ✅ Database setup (PostgreSQL hosting options)
+- ✅ Environment variable configuration
+- ✅ Deployment steps for multiple platforms
+- ✅ Troubleshooting tips
+- ✅ Security and performance best practices
+
+[📖 Read the Deployment Guide →](./DEPLOYMENT.md)
+
 ## Contributing
 
 When contributing to this project:
@@ -311,8 +350,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [ ] Add customer management features
 - [ ] Add unit and integration tests
 - [ ] Implement CI/CD pipeline
-- [ ] Add Docker support
-- [ ] Deploy to production
+- [x] ~~Add Docker support~~
+- [x] ~~Deploy to production~~
 
 ## Support
 

@@ -52,7 +52,7 @@ class BrandService {
 }
 
 // Factory function to create brand service
-export const createBrandService = (baseUrl: string = 'http://localhost:3000'): BrandService => {
+export const createBrandService = (baseUrl: string = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000'): BrandService => {
   const apiClient = new ApiClient(baseUrl);
   return new BrandService(apiClient);
 };
