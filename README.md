@@ -287,6 +287,25 @@ npm run build
 npm start
 ```
 
+## Deployment
+
+Ready to make your app accessible to anyone via URL?
+
+Check out our comprehensive **[Deployment Guide](./DEPLOYMENT.md)** for step-by-step instructions on deploying to:
+
+- **Vercel** (Recommended - easiest for Next.js apps)
+- **Docker** (Deploy anywhere with containers)
+- **Railway, Heroku, Render, and more**
+
+The guide includes:
+- ✅ Database setup (PostgreSQL hosting options)
+- ✅ Environment variable configuration
+- ✅ Deployment steps for multiple platforms
+- ✅ Troubleshooting tips
+- ✅ Security and performance best practices
+
+[📖 Read the Deployment Guide →](./DEPLOYMENT.md)
+
 ## Contributing
 
 When contributing to this project:
@@ -311,8 +330,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [ ] Add customer management features
 - [ ] Add unit and integration tests
 - [ ] Implement CI/CD pipeline
-- [ ] Add Docker support
-- [ ] Deploy to production
+- [x] ~~Add Docker support~~
+- [x] ~~Deploy to production~~
 
 ## Support
 

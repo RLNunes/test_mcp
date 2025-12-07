@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "name": "luxury-brands-backend",
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/next"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
+  ],
+  "env": {
+    "DATABASE_URL": "@database-url"
+  }
+}
